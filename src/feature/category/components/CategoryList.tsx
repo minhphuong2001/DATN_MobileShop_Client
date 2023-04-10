@@ -30,9 +30,8 @@ export default function CategoryList({ data }: CateProps) {
         <Grid container spacing={2}>
           {data.map((item, index) => {
             return (
-              <Grid item xs={1}>
+              <Grid item xs={1} key={index}>
                 <CategoryCard
-                  key={index}
                   title={item.title}
 									image={item.image}
 									background={item.background}

@@ -1,3 +1,4 @@
+import { useCallback, useState, useEffect } from 'react';
 import sliderData from "../assets/fake-data/slider";
 import Header from "../components/header/Header";
 import Helmet from "../components/helmet/Helmet";
@@ -12,6 +13,7 @@ import Footer from "../components/footer/Footer";
 import ListProduct from "../feature/product/components/ListProduct";
 import { ProductProps } from "../types/product";
 import CategoryList from "../feature/category/components/CategoryList";
+import productApi from '../api/productApi';
 
 const products: ProductProps[] = [
   {
@@ -133,6 +135,21 @@ const categoriesData = [
   },
 ];
 export default function Home() {
+  const [listProduct, setListProduct] = useState<ProductProps[]>([]);
+  const [loading, setLoading] = useState(false);
+  
+  const getProducts = useCallback(async () => {
+    setLoading(true);
+    const res = await productApi.getAll();
+    setListProduct([...listProduct, ...res.data]);
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+  
+  
   return (
     <Helmet title="Home">
       <Header />
@@ -144,7 +161,7 @@ export default function Home() {
       <Section>
         <SectionTitle>Top sản phẩm bán chạy</SectionTitle>
         <SectionBody>
-          <ListProduct product={products} />
+          <ListProduct product={listProduct} />
         </SectionBody>
       </Section>
       <Section>
