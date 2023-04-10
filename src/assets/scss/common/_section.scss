@@ -1,0 +1,38 @@
+.section {
+	width: 100%;
+
+	&-title {
+		text-align: center;
+		font-size: 22px;
+		font-weight: bold;
+		color: var(--main-color);
+		position: relative;
+		max-width: 500px;
+		margin: 0 auto;
+		text-transform: uppercase;
+
+		&:before {
+			content: "";
+			display: block;
+			width: 110px;
+			height: 3px;
+			background: var(--main-color);
+			position: absolute;
+			left: 0;
+			top: 50%;
+			z-index: -2;
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			width: 110px;
+			height: 3px;
+			background: var(--main-color);
+			position: absolute;
+			right: 0;
+			top: 50%;
+			z-index: -2;
+		}
+	}
+}

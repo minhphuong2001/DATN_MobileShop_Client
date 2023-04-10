@@ -1,0 +1,48 @@
+.BestSeller {
+	margin: 20px 0;
+	overflow: hidden;
+}
+
+.loadmore {
+	margin: 0 auto;
+	text-align: center;
+
+	&-btn {
+		width: 200px;
+		background-color: #000;
+		margin: 0 auto;
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		opacity: 0.8;
+		cursor: pointer;
+		position: relative;
+
+		&:hover {
+			opacity: 1;
+			transition: 0.5s linear;
+		}
+
+		&-text {
+			font-size: 16px;
+			position: relative;
+
+			&:hover {
+				color: #fff !important;
+			}
+		}
+
+		.btn {
+			background-color: #000;
+			color: #fff;
+			padding: 20px 40px;
+		}
+
+		.loadmore-loading {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
