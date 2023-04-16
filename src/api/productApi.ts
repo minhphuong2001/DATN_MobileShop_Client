@@ -29,9 +29,13 @@ const productApi = {
     return axiosClient.get(url);
 	},
 	getProductDedetail: (productId: string) => {
-		const url = `${ENDPOINT.productVersion}/${productId}`;
+		const url = `${ENDPOINT.productVersion}/product/${productId}`;
     return axiosClient.get(url);
-	}
+  },
+	getProductByCategory: (categoryId: string) => {
+		const url = `${ENDPOINT.productVersion}/category/${categoryId}`;
+    return axiosClient.get(url);
+  },
 };
 
 export default productApi;

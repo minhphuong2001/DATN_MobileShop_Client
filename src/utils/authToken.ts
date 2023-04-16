@@ -1,6 +1,6 @@
 import axiosClient from "../api/axiosClient";
 
-const setAuthToken = (accessToken: string) => {
+const setAuthToken = (accessToken: string | null) => {
   if (accessToken) {
     axiosClient.defaults.headers.common[
       "Authorization"

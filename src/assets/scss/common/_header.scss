@@ -1,112 +1,149 @@
 @import '../mixin';
 
 .header-container {
-    background-color: var(--main-bg);
-    width: 100%;
-    z-index: 99;
-    position: fixed;
+  background-color: var(--main-bg);
+  width: 100%;
+  z-index: 99;
+  // position: fixed;
 
-    .header {
-        padding: 20px 100px;
-        @include flex(center, space-between);
-        
-        &-left {
-            @include flex(center, center);
+  .header {
+    padding: 20px 100px;
+    @include flex(center, space-between);
 
-            &__logo {
-                color: var(--main-color);
-                font-size: 36px;
-                font-weight: 600;
-                text-transform: capitalize;
-                cursor: pointer;
+    &-left {
+      @include flex(center, center);
+
+      &__logo {
+        color: var(--main-color);
+        font-size: 36px;
+        font-weight: 600;
+        text-transform: capitalize;
+        cursor: pointer;
+      }
+
+      &__menu {
+        @include flex(flex-start, flex-start);
+        margin-left: 100px;
+
+        li {
+          @include flex(center, center);
+          padding: 10px 20px;
+          font-size: 18px;
+          position: relative;
+
+          &:hover {
+            background-color: var(--bg-gray);
+            border-radius: 20px;
+            cursor: pointer;
+            // transition: 0.25s ease;
+
+            .sub-menu {
+              display: block;
+              animation: animate 0.5s ease;
             }
+          }
 
-            &__menu {
-                @include flex(flex-start, flex-start);
-                margin-left: 100px;
+          .sub-menu {
+            display: none;
+            position: absolute;
+            padding: 10px;
+            background-color: var(--bg-white);
+            box-shadow: var(--box-shadow);
+            width: 200px;
+            top: 100%;
+            left: 0;
+            z-index: 99;
 
-                li {
-                    @include flex(center, center);
-                    padding: 10px 20px;
-                    font-size: 18px;
-                    position: relative;
+            &_item {
+              display: block;
+              @include flex(center, space-between);
+              text-align: left !important;
 
-                    &:hover {
-                        background-color: var(--bg-gray);
-                        border-radius: 20px;
-                        cursor: pointer;
-                        // transition: 0.25s ease;
-
-                        .sub-menu {
-                            display: block;
-                            animation: animate 0.5s ease;
-                        }
-                    }
-
-                    .sub-menu {
-                        display: none;
-                        position: absolute;
-                        padding: 10px;
-                        background-color: var(--bg-white);
-                        box-shadow: var(--box-shadow);
-                        width: 200px;
-                        top: 100%;
-                        left: 0;
-                        z-index: 99;
-
-                        li {
-                            display: block;
-                            @include flex(center, space-between);
-                            text-align: left !important;
-
-                            &:hover {
-                                background-color: var(--bg-gray);
-                                color: var(--main-color);
-                                border-radius: 5px !important;
-                                cursor: pointer;
-                                transition: 0.15s ease-in;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &-right {
-            @include flex(flex-start, flex-start);
-
-            &__btn {
-                @include flex(center, center);
-                width: 40px;
-                height: 40px;
+              &:hover {
                 background-color: var(--bg-gray);
-                border-radius: 50%;
+                color: var(--main-color);
+                border-radius: 5px !important;
                 cursor: pointer;
-                margin: 0 10px;
-                position: relative;
-
-                .count-cart {
-                    position: absolute;
-                    top: -10px;
-                    right: -5px;
-                    background-color: var(--main-color);
-                    color: var(--txt-white);
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 50%;
-                    font-size: 14px;
-                    @include flex(center, center);
-                }
+                transition: 0.1s ease-in;
+              }
             }
+
+            .menu-2 {
+              position: relative;
+
+              &:hover .sub-menu2 .sub-menu2_item {
+                color: var(--txt-black);
+              }
+
+              &:hover .sub-menu2 {
+                display: block;
+              }
+
+              .sub-menu2 {
+                position: absolute;
+                display: none;
+                padding: 10px;
+                width: 200px;
+                left: 180px;
+                top: -10px;
+                background-color: var(--bg-white);
+                box-shadow: var(--box-shadow);
+                z-index: 10000;
+
+                &_item {
+                  @include flex(flex-start, flex-start);
+
+                  &:hover {
+                    background-color: var(--bg-gray) !important;
+                    color: var(--main-color) !important;
+                    border-radius: 5px !important;
+                    cursor: pointer;
+                    transition: 0.1s ease-in;
+                  }
+                }
+              }
+            }
+          }
         }
+      }
     }
+
+    &-right {
+      @include flex(center, flex-start);
+
+      &__btn {
+        @include flex(center, center);
+        width: 40px;
+        height: 40px;
+        background-color: var(--bg-gray);
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 0 10px;
+        position: relative;
+
+        .count-cart {
+          position: absolute;
+          top: -10px;
+          right: -5px;
+          background-color: var(--main-color);
+          color: var(--txt-white);
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          font-size: 14px;
+          @include flex(center, center);
+        }
+      }
+    }
+  }
 }
 
 @keyframes animate {
-    from {
-        transform: translateY(50%);
-    }
-    to {
-        transform: translateY(0);
-    }
+  from {
+    transform: translateY(50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }

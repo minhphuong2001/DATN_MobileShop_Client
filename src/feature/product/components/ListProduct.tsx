@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import Loading from "../../../components/loading/Loading";
+import React from "react";
+// import Loading from "../../../components/loading/Loading";
 import ProductCard from "./ProductCard";
 import { Box, Grid } from "@mui/material";
 import { ProductProps } from "../../../types/product";
 
 interface ListProductProps {
   product: ProductProps[];
+  count: number;
   // onIncreasePage: () => void;
 }
 
-export default function ListProduct({ product }: ListProductProps) {
+export default function ListProduct({ product, count }: ListProductProps) {
   // const [loading, setLoading] = useState(false);
 
   // const handleClickIncrease = () => {
@@ -28,8 +29,9 @@ export default function ListProduct({ product }: ListProductProps) {
             <Grid container spacing={2}>
               {product.map((item, index: number) => {
                 return (
-                  <Grid item xs={2} key={index}>
+                  <Grid item xs={6} md={3} lg={count} key={index}>
                     <ProductCard
+                      _id={item._id}
                       images={item.images}
                       discount={item.discount}
                       sold={item.sold}
@@ -38,6 +40,7 @@ export default function ListProduct({ product }: ListProductProps) {
                       specification={item.specification}
                       category={item.category}
                       slug={item.slug}
+                      price={item.price}
                     />
                   </Grid>
                 );

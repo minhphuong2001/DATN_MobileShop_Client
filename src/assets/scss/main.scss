@@ -8,12 +8,19 @@
 @import './common/policy';
 @import './common/section';
 @import './common/loading';
+@import './common/custome-checkbox';
 
 // product
 @import './product/product_card.scss';
 @import './product/product_overlay.scss';
 @import './product/list_product.scss';
 @import './product/category.scss';
+@import './product/product_detail.scss';
+@import './product/product_category.scss';
+@import './product/cart';
+
+// auth
+@import './auth/auth.scss';
 
 .color-blue {
     color: var(--blue-color);

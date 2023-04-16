@@ -23,7 +23,7 @@ axiosClient.interceptors.response.use(
     return response;
   },
   async function (error) {
-    console.log(error.response);
+    console.log(error);
 
     const originalRequest = error.config;
     const refreshToken = localStorage[LOCAL_STORAGE.refreshToken];
@@ -36,7 +36,9 @@ axiosClient.interceptors.response.use(
     ) {
       originalRequest._retry = true;
 
-      const getAccessTokenData: any = await authApi.getAccessToken({ refreshToken });
+      const getAccessTokenData: any = await authApi.getAccessToken({
+        refreshToken,
+      });
 
       if (getAccessTokenData?.success) {
         const { accessToken, refreshToken } = getAccessTokenData;

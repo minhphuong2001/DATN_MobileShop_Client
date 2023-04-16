@@ -1,8 +1,16 @@
 import { ColorProps } from "./color";
 import { StorageProps } from "./storage";
 
-export interface ProductProps {
+export interface CategryProps{
 	_id?: string;
+	name: string;
+	logo: string;
+	slug: string;
+	createdAt?: string | Date;
+	updatedAt?: string | Date;
+}
+export interface ProductProps {
+	_id: string;
 	images: string[];
 	discount: number;
 	sold: number;
@@ -10,8 +18,9 @@ export interface ProductProps {
 	product_name: string;
 	description: string;
 	specification: string;
-	category: string;
+	category?: CategryProps;
 	slug: string;
+	price: number;
 	createdAt?: any;
 	updatedAt?: any;
 }
