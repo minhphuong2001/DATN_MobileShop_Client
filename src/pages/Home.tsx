@@ -15,9 +15,10 @@ import { ProductProps } from "../types/product";
 import CategoryList from "../feature/category/components/CategoryList";
 import productApi from '../api/productApi';
 import { Box, CircularProgress } from '@mui/material';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getAllCate } from '../feature/category/categorySlice';
 import { AppDispatch } from '../app/store';
+import { getCountCart } from '../feature/cart/cartSlice';
 
 // const products: ProductProps[] = [
 //   {
@@ -140,9 +141,10 @@ const categoriesData = [
 ];
 export default function HomePage() {
   const dispatch: AppDispatch = useDispatch();
+  const isAuthenticated = useSelector((state: any) => state.auth.isAuthenticated);
   const [loading, setLoading] = useState(false);
   const [listProduct, setListProduct] = useState<ProductProps[]>([]);
-  
+
   const getProducts = useCallback(async () => {
     setLoading(true);
     const res = await productApi.getAll();
@@ -154,6 +156,16 @@ export default function HomePage() {
   useEffect(() => {
     dispatch(getAllCate());
   }, [dispatch]);
+
+  useEffect(() => {
+    const fetchCountCarts = async () => {
+      if (isAuthenticated) {
+        await dispatch(getCountCart());
+      }
+    };
+
+    fetchCountCarts();
+  }, [dispatch, isAuthenticated]);
 
   useEffect(() => {
     getProducts();

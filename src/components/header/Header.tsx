@@ -17,7 +17,8 @@ export default function Header() {
     (state: any) => state.category.categories
   );
   const user: UserProps = useSelector((state: any) => state.auth.user);
-
+  const numOfProduct = useSelector((state: any) => state.cart.countCart);
+    
   return (
     <div className="header-container">
       <div className="header">
@@ -60,9 +61,16 @@ export default function Header() {
         <div className="header-right">
           {user ? (
             <>
-              <div className="header-right__btn" onClick={() => navigate("/gio-hang")}>
+              <div
+                className="header-right__btn"
+                onClick={() => navigate("/gio-hang")}
+              >
                 <LocalMallOutlined />
-                <div className="count-cart">3</div>
+                {numOfProduct > 0 ? (
+                  <div className="count-cart">{numOfProduct}</div>
+                ) : (
+                  ""
+                )}
               </div>
               <Box
                 sx={{

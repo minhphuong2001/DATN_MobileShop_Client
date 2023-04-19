@@ -10,13 +10,14 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "./app/store";
 import { getUser } from "./feature/auth/authSlice";
 import CartPage from "./pages/Cart";
+import CheckoutPage from "./pages/Checkout";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUser());
-  }, [])
+  }, [dispatch])
 
   return (
     <BrowserRouter>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/danh-muc-san-pham" element={<CategoryPage />} />
           <Route path="/san-pham/:slug" element={<ProductPage />} />
           <Route path="/gio-hang" element={<CartPage />} />
+          <Route path="/thanh-toan" element={<CheckoutPage />} />
         </Routes>
       </div>
     </BrowserRouter>

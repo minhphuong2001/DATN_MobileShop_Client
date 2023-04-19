@@ -11,12 +11,7 @@ export default function ProductCard(product: ProductProps) {
 
   return (
     <div className="Product-Card">
-      <div
-        className="product"
-        onClick={() =>
-          navigate(`/san-pham/${product.slug}`, { state: product })
-        }
-      >
+      <div className="product">
         <div className="product-img">
           <div className="product-tag">
             {product.discount > 0 && (
@@ -33,8 +28,14 @@ export default function ProductCard(product: ProductProps) {
           </div>
           <ProductOverlay product={product} />
         </div>
-        <div className="product-title">{product.product_name}</div>
-        <div className="product-price">{MoneyFormat(product.price)}</div>
+        <div
+          onClick={() =>
+            navigate(`/san-pham/${product.slug}`, { state: product })
+          }
+        >
+          <div className="product-title">{product.product_name}</div>
+          <div className="product-price">{MoneyFormat(product.price)}</div>
+        </div>
       </div>
     </div>
   );

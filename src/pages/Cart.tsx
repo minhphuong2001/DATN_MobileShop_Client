@@ -6,12 +6,14 @@ import Header from "../components/header/Header";
 
 export default function CartPage() {
 	return (
-		<div className="Cart">
+		<>
 			<Header />
 			<Helmet title="Giỏ hàng">
-				<CartBody />
+				<div className="Cart">
+					<CartBody />
+				</div>
 			</Helmet>
 			<Footer />
-		</div>
+		</>
 	)
 }

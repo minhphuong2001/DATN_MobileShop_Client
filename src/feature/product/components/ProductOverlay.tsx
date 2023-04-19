@@ -1,6 +1,6 @@
 // import Loading from "../../../components/loading/Loading";
 import React from "react";
-import { AddShoppingCart, FavoriteBorder } from "@mui/icons-material";
+import { FavoriteBorder, Visibility } from "@mui/icons-material";
 
 export default function ProductOverlay(props: any) {
   // const { product } = props;
@@ -54,7 +54,7 @@ export default function ProductOverlay(props: any) {
         ) : (
           <AddShoppingCart className="product-icon" />
         )} */}
-				<AddShoppingCart className="product-icon" />
+				<Visibility className="product-icon" />
       </div>
       <div
         className="product-icon-box flex icon-wishlist"
