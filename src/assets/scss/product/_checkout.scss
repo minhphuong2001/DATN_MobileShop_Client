@@ -1,0 +1,57 @@
+.checkout {
+	width: 100%;
+	margin: 30px 0;
+	padding: 0 50px;
+	&-body {
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-around;
+
+		&__main, 
+		&__order {
+			border-radius: 10px;
+			box-shadow: var(--box-shadow-light);
+			padding: 10px 20px;
+		}
+
+		&__order {
+			height: auto;
+		}
+
+		.letter {
+			background-image: repeating-linear-gradient(45deg,#12b560,#12b560 33px,transparent 0,transparent 41px,#e9e9e9 0,#e9e9e9 74px,transparent 0,transparent 82px);
+    	height: 10px;
+		}
+
+		.btn-checkout {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			margin: 10px 0;
+		}
+
+		.payment-border {
+			border: 1px solid var(--txt-gray);
+			padding: 5px 10px;
+			width: 80% !important;
+			margin-left: 20% !important;
+			
+			&:last-child {
+				margin: 10px 0;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 1280px) {
+	.checkout-body__order {
+		margin-top: 30px;
+	}
+}
+
+.css-ubk9oh-MuiFormGroup-root {
+	width: 80% !important;
+	margin-left: 20%;
+}

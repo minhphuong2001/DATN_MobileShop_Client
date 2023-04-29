@@ -18,17 +18,12 @@ export interface UserRegister {
 	email: string;
 	password: string;
 	confirmPassword: string;
-	role: string;
 }
 
 export interface UserChangePassword {
 	password: string;
 	newPassword: string;
 	confirmPassword: string;
-}
-
-export interface UserForgotPassword {
-	email: string;
 }
 
 export interface UserResetPassword {

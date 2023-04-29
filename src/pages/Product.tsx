@@ -9,8 +9,9 @@ import { ProductVersionProps } from "../types/product";
 import productApi from "../api/productApi";
 import { Box, CircularProgress } from "@mui/material";
 
-const initProduct: ProductVersionProps[] = [
+export const initialProductVersion: ProductVersionProps[] = [
   {
+    _id: "",
     quantity: 0,
     price: 0,
     sale_price: 0,
@@ -43,7 +44,7 @@ const initProduct: ProductVersionProps[] = [
 export default function ProductPage() {
   const location = useLocation();
   const [productVersion, setProductVersion] =
-    useState<ProductVersionProps[]>(initProduct);
+    useState<ProductVersionProps[]>(initialProductVersion);
   const [loading, setLoading] = useState(false);
 
   const productItem: any = location.state;

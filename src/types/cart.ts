@@ -11,7 +11,11 @@ export interface AddOrderType {
 	address: string;
 	phone: string;
 	note: string;
-	carts: string[];
+	coupon?: string[];
+	carts: CartProps[];
+	payment_method: string;
+	status: number;
+	total_amount: number;
 }
 
 export interface CartProps {

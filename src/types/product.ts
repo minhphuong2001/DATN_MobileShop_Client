@@ -26,7 +26,7 @@ export interface ProductProps {
 }
 
 export interface ProductVersionProps {
-	_id?: string;
+	_id: string;
 	quantity: number;
 	price: number;
 	sale_price: number;

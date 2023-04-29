@@ -79,6 +79,7 @@ export default function Header() {
                   justifyContent: "center",
                   cursor: "pointer",
                 }}
+                onClick={() => navigate("/tai-khoan")}
               >
                 <div className="header-right__btn">
                   <PersonOutline />

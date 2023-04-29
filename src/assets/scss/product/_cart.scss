@@ -113,8 +113,6 @@
   }
   &_content {
     width: 100%;
-    border-top: 1px solid var(--txt-gray2);
-    border-bottom: 1px solid var(--txt-gray2);
   }
 
   &_item {
@@ -126,6 +124,7 @@
     justify-content: start;
     align-items: center;  
     padding: 5px 0;
+    border-bottom: 1px solid var(--txt-gray2);
     
     & div:nth-child(1){
       width: 40%;

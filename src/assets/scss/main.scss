@@ -11,44 +11,44 @@
 @import './common/custome-checkbox';
 
 // product
-@import './product/product_card.scss';
-@import './product/product_overlay.scss';
-@import './product/list_product.scss';
-@import './product/category.scss';
-@import './product/product_detail.scss';
-@import './product/product_category.scss';
-@import './product/cart.scss';
+@import './product/cart';
+@import './product/category';
+@import './product/checkout';
+@import './product/list-product';
+@import './product/product-card';
+@import './product/product-category';
+@import './product/product-detail';
+@import './product/product-overlay';
 
 // auth
-@import './auth/auth.scss';
-
-.color-blue {
-    color: var(--blue-color);
-}
-
-.color-pink {
-    color: var(--pink-color);
-}
-
-.color-orange {
-    color: var(--orange-color);
-}
-
-.bg-blue {
-    background-color: var(--blue-color);
-}
-
-.bg-pink {
-    background-color: var(--pink-color);
-}
-
-.bg-orange {
-    background-color: var(--orange-color);
-}
+@import './auth/auth';
+@import './auth/user';
 
 .container {
     width: 100%;
     max-width: 1400px;
     padding: 0 50px;
     margin: 0 auto;
+}
+
+.bg-blue {
+    background-color: var(--blue-color);
+}
+.bg-orange {
+    background-color: var(--orange-color);
+}
+.bg-pink {
+    background-color: var(--pink-color);
+}
+.bg-white {
+    background-color: var(--white-color);
+}
+.bg-black {
+    background-color: var(--black-color);
+}
+.bg-red {
+    background-color: var(--red-color);
+}
+.bg-main {
+    background-color: var(--main-color);
 }

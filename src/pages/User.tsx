@@ -2,15 +2,15 @@ import React from "react";
 import Header from "../components/header/Header";
 import Helmet from "../components/helmet/Helmet";
 import Footer from "../components/footer/Footer";
-import CheckoutBody from "../feature/checkout/CheckoutBody";
+import MyAccount from "../feature/auth/MyAccount";
 
-export default function CheckoutPage() {
+export default function UserPage() {
 	return (
 		<>
 			<Header />
-			<Helmet title="Thanh toán">
-				<div className="checkout">
-					<CheckoutBody />
+			<Helmet title="Tài khoản">
+				<div className="User">
+					<MyAccount />
 				</div>
 			</Helmet>
 			<Footer />

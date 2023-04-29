@@ -12,65 +12,60 @@ import { useNavigate } from "react-router-dom";
 import { ProductVersionProps } from "../../../types/product";
 import { MoneyFormat } from "../../../utils/moneyFormat";
 import { Box, Typography } from "@mui/material";
-// import { useDispatch, useSelector } from "react-redux";
-// import { addCart } from "features/Cart/cartSlice";
+import { AppDispatch } from "../../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { addCart, getCountCart } from "../../cart/cartSlice";
+import { toast } from "react-toastify";
 
 type ProductAttributeProps = {
-  name: string;
+  id: string;
+  color: string;
+  storage: string;
   price: number;
-  attribute: string;
-  setAttribute: (attribute: string) => void;
+  item: ProductVersionProps;
+  setItem: (item: ProductVersionProps) => void;
 };
 
-export function ProductAttributeCard({
-  name,
-  price,
-  attribute,
-  setAttribute,
-}: ProductAttributeProps) {
-  let bgcColor = "";
-  function changeColor(color: string) {
-    switch (color) {
-      case "Trắng": {
-        bgcColor = "white";
-        break;
-      }
-      case "Xanh dương": {
-        bgcColor = "cadetblue";
-        break;
-      }
-      case "Xanh": {
-        bgcColor = "blue";
-        break;
-      }
-      case "Đỏ": {
-        bgcColor = "red";
-        break;
-      }
-      case "Hồng": {
-        bgcColor = "pink";
-        break;
-      }
-      case "Xám": {
-        bgcColor = "grey";
-        break;
-      }
-      case "Tím": {
-        bgcColor = "darkorchid";
-        break;
-      }
-      default:
-        bgcColor = "black";
-        break;
-    }
-  }
+export const initialProductVersion = {
+  _id: "",
+  quantity: 0,
+  price: 0,
+  sale_price: 0,
+  product: {
+    _id: "",
+    images: [],
+    discount: 0,
+    sold: 0,
+    deleted: 0,
+    product_name: "",
+    description: "",
+    specification: "",
+    category: {
+      name: "",
+      logo: "",
+      slug: "",
+    },
+    slug: "",
+    price: 0,
+  },
+  storage: {
+    name: "",
+  },
+  color: {
+    name: "",
+  },
+};
 
+export function ProductAttributeCard({ id, color, storage, price, item, setItem }: ProductAttributeProps) {
+  
   return (
     <div
-      className={`product-attribute ${attribute === name ? `active` : ""}`}
-      onClick={() => setAttribute(name)}
+      className={`product-attribute ${item._id === id ? `active` : ""}`}
+      onClick={() => setItem(item)}
     >
-      <p className="product-attribute__name">{name}</p>
+      <p className="product-attribute__name">
+        {color} - {storage}
+      </p>
       <p className="product-attribute__price">{MoneyFormat(price)}</p>
     </div>
   );
@@ -78,11 +73,12 @@ export function ProductAttributeCard({
 
 export default function ProductDetail({ productVersion }: any) {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const user = useSelector((state) => state.auth.user);
+  const dispatch: AppDispatch = useDispatch();
+  const user = useSelector((state: any) => state.auth.user);
   const [imageIndex, setImageIndex] = useState(0);
-  const [color, setColor] = useState<any>(undefined);
-  const [storage, setStorage] = useState<any>(undefined);
+  const [productItem, setProductItem] = useState<ProductVersionProps>(
+    initialProductVersion
+  );
   const [countCart, setCountCart] = useState(1);
   const [desExpand, setDesExpand] = useState(false);
 
@@ -101,54 +97,51 @@ export default function ProductDetail({ productVersion }: any) {
   };
 
   const check = () => {
-    if (color === undefined) {
-      alert("Vui lòng chọn màu sắc!");
-      return false;
-    }
-
-    if (storage === undefined) {
-      alert("Vui lòng chọn dung lượng!");
+    if (productItem._id === "") {
+      alert("Vui lòng chọn dung lượng và màu sắc!");
       return false;
     }
 
     return true;
   };
 
-  // const gotoCart = () => {
-  //   if (check()) {
-  //     history.push("/cart");
-  //   }
-  // };
+  const gotoCart = () => {
+    if (check()) {
+      navigate("/gio-hang");
+    }
+  };
 
-  // const handleClickCart = async () => {
-  //   try {
-  //     if (user) {
-  //       await dispatch(
-  //         addCart({ body: { productId: product._id, quantity: countCart } })
-  //       );
-  //     } else {
-  //       history.push("/user");
-  //     }
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
+  const handleClickCart = async () => {
+    try {
+      if (user) {
+        if (check()) {
+          await dispatch(addCart({ body: { product_version: productItem._id, quantity: countCart } }));
+          await dispatch(getCountCart());
+          toast.success("Thêm vào giỏ hàng thành công");
+        }
+      } else {
+        navigate("/dang-nhap");
+      }
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
       <Box
         sx={{
-          paddingLeft: '100px',
-          paddingBottom: '30px',
-          marginTop: '40px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          cursor: 'pointer'
+          paddingLeft: "100px",
+          paddingBottom: "30px",
+          marginTop: "40px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          cursor: "pointer",
         }}
       >
         <KeyboardBackspace onClick={() => navigate(-1)} />
-        <Typography sx={{ marginLeft: '5px' }}>Quay lại</Typography>
+        <Typography sx={{ marginLeft: "5px" }}>Quay lại</Typography>
       </Box>
       <div className="product__detail">
         <div className="product__detail-image">
@@ -217,40 +210,34 @@ export default function ProductDetail({ productVersion }: any) {
           </div>
 
           <div className="info-item">
-            <div className="info-item__title">Dung lượng</div>
+            <div className="info-item__title">Màu sắc và dung lượng</div>
             <div className="info-item__list">
               {productVersion?.filter(
                 (item: ProductVersionProps) => item?.storage
-              )?.length > 0 ? (
+              )?.length > 0 &&
                 productVersion?.map(
                   (item: ProductVersionProps, index: number) => {
                     if (item?.storage) {
                       return (
                         <ProductAttributeCard
                           key={index}
-                          name={item?.storage?.name}
+                          id={item?._id}
+                          color={item?.color?.name}
+                          storage={item?.storage?.name}
                           price={item.price}
-                          attribute={storage}
-                          setAttribute={setStorage}
+                          item={productItem}
+                          setItem={() => setProductItem(item)}
                         />
                       );
                     } else {
                       return null;
                     }
                   }
-                )
-              ) : (
-                <ProductAttributeCard
-                  name="128GB"
-                  price={productVersion[0]?.product?.price}
-                  attribute={storage}
-                  setAttribute={setStorage}
-                />
-              )}
+                )}
             </div>
           </div>
 
-          <div className="info-item">
+          {/* <div className="info-item">
             <div className="info-item__title">Màu sắc</div>
             <div className="info-item__list">
               {productVersion?.filter(
@@ -282,7 +269,7 @@ export default function ProductDetail({ productVersion }: any) {
                 />
               )}
             </div>
-          </div>
+          </div> */}
 
           <div className="info-item promotion-product">
             <button className="promotion-icon">
@@ -332,14 +319,14 @@ export default function ProductDetail({ productVersion }: any) {
           </div>
 
           <div className="info-item__btn">
-            <div>
+            <div onClick={handleClickCart}>
               <button className="btn-cart">
                 <ShoppingCart className="cart-icon" />
                 <span>Thêm vào giỏ hàng</span>
               </button>
             </div>
             <div>
-              <button className="buy">Mua ngay</button>
+              <button className="buy" onClick={gotoCart}>Mua ngay</button>
             </div>
           </div>
         </div>
@@ -351,11 +338,18 @@ export default function ProductDetail({ productVersion }: any) {
           </div>
           <div>
             <h4>Hộp bao gồm</h4>
-            <p>Máy, Sách hướng dẫn, Cáp Type C – Type C, Củ sạc nhanh rời đầu Type C</p>
+            <p>
+              Máy, Sách hướng dẫn, Cáp Type C – Type C, Củ sạc nhanh rời đầu
+              Type C
+            </p>
           </div>
           <div>
             <h4>Bảo hành</h4>
-            <p>Bảo hành 12 tháng tại trung tâm bảo hành chính hãng. 1 ĐỔI 1 trong 30 ngày nếu có lỗi phần cứng nhà sản xuất. Gia hạn bảo hành thời gian giãn cách</p>
+            <p>
+              Bảo hành 12 tháng tại trung tâm bảo hành chính hãng. 1 ĐỔI 1 trong
+              30 ngày nếu có lỗi phần cứng nhà sản xuất. Gia hạn bảo hành thời
+              gian giãn cách
+            </p>
           </div>
         </div>
       </div>

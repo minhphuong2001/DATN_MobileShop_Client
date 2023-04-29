@@ -24,3 +24,11 @@ ul {
 	margin-left: 50px;
 	margin-right: 50px;
 }
+
+.three-dot {
+  display: inline-block;
+  width: 20px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}

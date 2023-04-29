@@ -4,7 +4,9 @@ import { TextField } from "@mui/material";
 
 type InputFieldProps = {
 	name: string;
-	label: string;
+  label: string;
+  type?: string;
+  disabled?: boolean;
 	control: any;
 	inputProps?: any;
 }
@@ -13,6 +15,8 @@ export default function InputField({
   name,
   control,
   label,
+  type,
+  disabled,
   ...inputProps
 }: InputFieldProps) {
   const {
@@ -28,6 +32,8 @@ export default function InputField({
       size="small"
       label={label}
       value={value}
+      type={type}
+      disabled={disabled}
       onChange={onChange}
       onBlur={onBlur}
       inputRef={ref}

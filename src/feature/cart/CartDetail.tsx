@@ -8,22 +8,36 @@ import cartApi from "../../api/cartApi";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
 import { deleteCart, getAllCarts, getCountCart } from "./cartSlice";
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify";
 
 interface CartDetailProps {
   data: CartProps[];
+  loading: boolean;
 }
+// const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-export default function CartDetail({ data }: CartDetailProps) {
+export default function CartDetail({ data, loading }: CartDetailProps) {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
-  const [carts, setCarts] = useState<CartProps[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [carts, setCarts] = useState<CartProps[]>([]);
 
   useEffect(() => {
     setCarts([...data]);
   }, [data]);
 
+  // const handleClickCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { id, checked, value } = e.target;
+  //   let cartSelected = JSON.parse(value);
+  //   setSelected([...selected, cartSelected]);
+    
+  //   if (!checked) {
+  //     setSelected(selected.filter(item =>  item._id !== id));
+  //   }
+  // };
+  // console.log(selected);
+  
+  
   const totalPrice =
     carts.reduce((acc, cur) => {
       acc += cur.product_version.price * cur.quantity;
@@ -65,7 +79,7 @@ export default function CartDetail({ data }: CartDetailProps) {
     } catch (error: any) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div>
@@ -76,63 +90,93 @@ export default function CartDetail({ data }: CartDetailProps) {
         <p>Tạm tính</p>
       </div>
       <div className="cart_content">
-        {carts.map((item, index) => {
-          if (item.quantity) {
-            return (
-              <div className="cart_item" key={index}>
-                <div className="cart_info">
-                  <img src={item.product_version.product.images[0]} alt="" />
-                  <p className="cart_info_name">
-                    {item.product_version.product.product_name}
-                  </p>
-                </div>
-                <div className="cart_price">
-                  {MoneyFormat(item.product_version.price)}
-                </div>
-                <div className="cart_qty">
-                  <p>
-                    <Button
-                      variant="contained"
-                      color="inherit"
-                      sx={{ mr: 1 }}
-                      onClick={() =>
-                        handleChangeQty(item._id, item.quantity - 1)
-                      }
-                    >
-                      -
-                    </Button>
-                    <span>{item.quantity}</span>
-                    <Button
-                      variant="contained"
-                      color="inherit"
-                      sx={{ ml: 1 }}
-                      onClick={() =>
-                        handleChangeQty(item._id, item.quantity + 1)
-                      }
-                    >
-                      +
-                    </Button>
-                  </p>
-                </div>
-                <div className="cart_price">
-                  {MoneyFormat(item.product_version.price)}
-                </div>
-                <div className="cart_delete">
-                  <div onClick={() => handleDeleteCart(item._id)}>
-                    <Close />
+        {loading ? (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "20px 0"
+            }}
+          >
+            <CircularProgress size={40} color="success" />
+          </Box>
+        ) : (
+          carts.map((item, index) => {
+            if (item.quantity) {
+              return (
+                <div className="cart_item" key={index}>
+                  {/* <div>
+                  <Checkbox
+                      {...label}
+                      size='small'
+                      id={item._id}
+                      value={JSON.stringify(item)}
+                      checked={selected.includes(item._id)}
+                      onChange={handleClickCheckbox}
+                    />
+                  </div> */}
+                  <div className="cart_info">
+                    <img src={item.product_version.product.images[0]} alt="" />
+                    <p className="cart_info_name">
+                      {item.product_version.product.product_name}
+                    </p>
+                  </div>
+                  <div className="cart_price">
+                    {MoneyFormat(item.product_version.price)}
+                  </div>
+                  <div className="cart_qty">
+                    <p>
+                      <Button
+                        variant="contained"
+                        color="inherit"
+                        sx={{ mr: 1 }}
+                        onClick={() =>
+                          handleChangeQty(item._id, item.quantity - 1)
+                        }
+                      >
+                        -
+                      </Button>
+                      <span>{item.quantity}</span>
+                      <Button
+                        variant="contained"
+                        color="inherit"
+                        sx={{ ml: 1 }}
+                        onClick={() =>
+                          handleChangeQty(item._id, item.quantity + 1)
+                        }
+                      >
+                        +
+                      </Button>
+                    </p>
+                  </div>
+                  <div className="cart_price">
+                    {MoneyFormat(item.product_version.price * item.quantity)}
+                  </div>
+                  <div className="cart_delete">
+                    <div onClick={() => handleDeleteCart(item._id)}>
+                      <Close />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          }
-          return null;
-        })}
+              );
+            }
+            return null;
+          })
+        )}
       </div>
       <div className="cart_action">
         <button className="button_update" onClick={handleUpdateCart}>
           {isSubmitting ? (
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-              <CircularProgress size={24} color="success" /> {"  "} Cập nhật giỏ hàng
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <CircularProgress size={24} color="success" /> {"  "} Cập nhật giỏ
+              hàng
             </Box>
           ) : (
             <span>Cập nhật giỏ hàng</span>

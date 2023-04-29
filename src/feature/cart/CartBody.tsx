@@ -8,14 +8,17 @@ import { CartProps } from '../../types/cart';
 export default function CartBody() {
   const dispatch: AppDispatch = useDispatch();
   const numOfProduct = useSelector((state: any) => state.cart.countCart);
+  const cart: CartProps[]  = useSelector((state: any) => state.cart.cartList)
   const [currentTab, setCurrentTab] = useState(1);
   const [isActive, setIsActive] = useState(1);
-  const cart: CartProps[]  = useSelector((state: any) => state.cart.cartList)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchCarts = async () => {
       try {
+        setLoading(true);
         await dispatch(getAllCarts());
+        setLoading(false);
       } catch (error: any) {
         console.log(error.message);
       }
@@ -56,7 +59,7 @@ export default function CartBody() {
       </div>
       <div className="tab-content">
         {
-          currentTab === 1 && <CartDetail data={cart} /> //<CartDetail data={carts} />
+          currentTab === 1 && <CartDetail data={cart} loading={loading} /> 
         }
         {
           currentTab === 2 && <p>Bạn chưa có sản phẩm nào! Vui lòng quay lại trang chủ để thêm sản phẩm yêu thích</p> //<Wishlist data={wishList} />
