@@ -2,8 +2,9 @@ export const PAGE_DEFAULT = 1;
 export const LIMIT_DEFAULT = 12;
 
 export const LOCAL_STORAGE = {
-	accessToken: 'mimin-shop-token',
-	refreshToken: 'mimin-shop-refresh-token',
+	accessToken: 'dtmp-shop-token',
+	refreshToken: 'dtmp-shop-refresh-token',
+	userInfo: 'dtmp-shop-user-info'
 };
 
 export const CURRENCY = {
@@ -12,8 +13,13 @@ export const CURRENCY = {
 }
 
 export const PAYMENT_METHOD_TYPE = {
-	onDelivery: "Payment on delivery",
-	paypal: "Paypal"
+	onDeliveryPayment: "Thanh toán khi nhận hàng",
+	onPaypalPayment: "Thanh toán bằng Paypal"
+}
+
+export const PAYMENT_METHOD = {
+	onDeliveryPayment: "onDeliveryPayment",
+	onPaypalPayment: "onPaypalPayment"
 }
 
 export enum StatusType {

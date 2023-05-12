@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MoneyFormat } from "../../utils/moneyFormat";
 import { Close } from "@mui/icons-material";
 import { CartProps } from "../../types/cart";
-import { Box, Button, CircularProgress } from "@mui/material";
+import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import cartApi from "../../api/cartApi";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
@@ -30,14 +30,13 @@ export default function CartDetail({ data, loading }: CartDetailProps) {
   //   const { id, checked, value } = e.target;
   //   let cartSelected = JSON.parse(value);
   //   setSelected([...selected, cartSelected]);
-    
+
   //   if (!checked) {
   //     setSelected(selected.filter(item =>  item._id !== id));
   //   }
   // };
   // console.log(selected);
-  
-  
+
   const totalPrice =
     carts.reduce((acc, cur) => {
       acc += cur.product_version.price * cur.quantity;
@@ -81,7 +80,7 @@ export default function CartDetail({ data, loading }: CartDetailProps) {
     }
   };
 
-  return (
+  return carts.length !== 0 ? (
     <div>
       <div className="cart_title">
         <p>Sản phẩm</p>
@@ -96,7 +95,7 @@ export default function CartDetail({ data, loading }: CartDetailProps) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "20px 0"
+              padding: "20px 0",
             }}
           >
             <CircularProgress size={40} color="success" />
@@ -118,9 +117,13 @@ export default function CartDetail({ data, loading }: CartDetailProps) {
                   </div> */}
                   <div className="cart_info">
                     <img src={item.product_version.product.images[0]} alt="" />
-                    <p className="cart_info_name">
-                      {item.product_version.product.product_name}
-                    </p>
+                    <div className="cart_info_name">
+                      <p>{item.product_version.product.product_name}</p>
+                      <p className="cart_info_attribute">
+                        {item.product_version.color.name} -{" "}
+                        {item.product_version.storage.name}
+                      </p>
+                    </div>
                   </div>
                   <div className="cart_price">
                     {MoneyFormat(item.product_version.price)}
@@ -193,5 +196,14 @@ export default function CartDetail({ data, loading }: CartDetailProps) {
         </button>
       </div>
     </div>
+  ) : (
+    <Box sx={{ textAlign: "center" }}>
+      <Typography component="h6" variant="h6" sx={{ pb: 2 }}>
+        Bạn chưa có sản phẩm nào trong giỏ hàng.
+      </Typography>
+      <Link to="/" className="back">
+        Đến ngay gian hàng để mua.
+      </Link>
+    </Box>
   );
 }

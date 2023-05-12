@@ -10,8 +10,9 @@ import { useSelector } from "react-redux";
 import { CategoryProps } from "../../types/category";
 import { Button, Box, Typography } from "@mui/material";
 import { UserProps } from "../../types/user";
+// import { LOCAL_STORAGE } from "../../constants/global";
 
-export default function Header() {
+function Header() {
   const navigate = useNavigate();
   const categories: CategoryProps[] = useSelector(
     (state: any) => state.category.categories
@@ -24,7 +25,7 @@ export default function Header() {
       <div className="header">
         <div className="header-left">
           <div className="header-left__logo" onClick={() => navigate("/")}>
-            MiMin shop
+            DTMP shop
           </div>
           <ul className="header-left__menu">
             <li onClick={() => navigate("/")}>Trang chủ</li>
@@ -84,7 +85,7 @@ export default function Header() {
                 <div className="header-right__btn">
                   <PersonOutline />
                 </div>
-                <Typography>{user?.email}</Typography>
+                <Typography>{user?.fullname}</Typography>
               </Box>
             </>
           ) : (
@@ -102,3 +103,5 @@ export default function Header() {
     </div>
   );
 }
+
+export default (Header)

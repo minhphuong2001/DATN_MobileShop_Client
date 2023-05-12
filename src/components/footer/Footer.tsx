@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="row-row">
           <div className="footer-col">
-            <h4>Về Mimin Shop</h4>
+            <h4>Về DTMP Shop</h4>
             <ul>
               <li>
                 <a href="/">Giới thiệu</a>

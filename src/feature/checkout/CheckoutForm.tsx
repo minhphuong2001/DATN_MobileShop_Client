@@ -40,6 +40,7 @@ export default function CheckoutForm({ name, label, icon, row, control }: Checko
         inputRef={ref}
         error={invalid}
         helperText={error?.message}
+        maxRows={5}
 				// value={value}
         // onChange={onChange}
         InputProps={{

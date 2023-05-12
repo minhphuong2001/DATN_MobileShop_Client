@@ -49,6 +49,7 @@ export default function LoginPage() {
       if (res.success) {
         localStorage.setItem(LOCAL_STORAGE.accessToken, res.accessToken);
         localStorage.setItem(LOCAL_STORAGE.refreshToken, res.refreshToken);
+        localStorage.setItem(LOCAL_STORAGE.userInfo, JSON.stringify(res.data));
         dispatch(getUser());
         navigate("/");
         setLoginError("");
@@ -108,10 +109,10 @@ export default function LoginPage() {
           <div className="overlay-container">
             <div className="overlay">
               <div className="overlay-panel overlay-right">
-                <h1>Chào mừng bạn đến với Mimin Shop!</h1>
+                <h1>Chào mừng bạn đến với DTMP Shop!</h1>
                 <p className="title-auth">
                   Nhập thông tin của bạn và bắt đầu hành trình với mua sắm tuyệt
-                  vời với Mimin nhé ^_^
+                  vời với DTMP Shop nhé ^_^
                 </p>
                 <button
                   className="ghost"

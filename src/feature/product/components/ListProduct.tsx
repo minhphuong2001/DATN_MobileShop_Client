@@ -28,22 +28,24 @@ export default function ListProduct({ product, count }: ListProductProps) {
           <Box>
             <Grid container spacing={2}>
               {product.map((item, index: number) => {
-                return (
-                  <Grid item xs={6} md={3} lg={count} key={index}>
-                    <ProductCard
-                      _id={item._id}
-                      images={item.images}
-                      discount={item.discount}
-                      sold={item.sold}
-                      product_name={item.product_name}
-                      description={item.description}
-                      specification={item.specification}
-                      category={item.category}
-                      slug={item.slug}
-                      price={item.price}
-                    />
-                  </Grid>
-                );
+                if (item.deleted === 0) {
+                  return (
+                    <Grid item xs={6} md={3} lg={count} key={index}>
+                      <ProductCard
+                        _id={item._id}
+                        images={item.images}
+                        discount={item.discount}
+                        sold={item.sold}
+                        product_name={item.product_name}
+                        description={item.description}
+                        specification={item.specification}
+                        category={item.category}
+                        slug={item.slug}
+                        price={item.price}
+                      />
+                    </Grid>
+                  );
+                }
               })}
             </Grid>
           </Box>

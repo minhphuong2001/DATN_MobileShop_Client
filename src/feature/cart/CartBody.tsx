@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarts } from './cartSlice';
 import { AppDispatch } from '../../app/store';
 import { CartProps } from '../../types/cart';
+import { Box, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function CartBody() {
   const dispatch: AppDispatch = useDispatch();
@@ -62,7 +64,14 @@ export default function CartBody() {
           currentTab === 1 && <CartDetail data={cart} loading={loading} /> 
         }
         {
-          currentTab === 2 && <p>Bạn chưa có sản phẩm nào! Vui lòng quay lại trang chủ để thêm sản phẩm yêu thích</p> //<Wishlist data={wishList} />
+          currentTab === 2 && <Box sx={{ textAlign: "center" }}>
+          <Typography component="h6" variant="h6" sx={{ pb: 2 }}>
+            Bạn chưa có sản phẩm yêu thích nào.
+          </Typography>
+          <Link to="/" className="back">
+            Đến ngay gian hàng để mua.
+          </Link>
+        </Box> //<Wishlist data={wishList} />
         }
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CheckoutForm from "./CheckoutForm";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   Home,
@@ -17,11 +17,8 @@ import {
   FormControlLabel,
   FormHelperText,
   Grid,
-  InputLabel,
-  MenuItem,
   Radio,
   RadioGroup,
-  Select,
   Table,
   TableBody,
   TableCell,
@@ -36,11 +33,25 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import orderApi from "../../api/orderApi";
 import { toast } from "react-toastify";
+import { PAYMENT_METHOD } from "../../constants/global";
+import { AppDispatch } from "../../app/store";
+import { orderPaymentPaypal } from "../cart/cartSlice";
+import { UserProps } from "../../types/user";
+import { getUser } from "../auth/authSlice";
 
 export default function CheckoutBody() {
   const navigate = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
   const carts: CartProps[] = useSelector((state: any) => state.cart.cartList);
+  const user: UserProps = useSelector((state: any) => state.auth.user);
   const [isSubmiting, setIsSubmiting] = useState(false);
+
+  const initialValue = {
+    phone: user.phone ? user.phone : "",
+    address: user.address ? user.address : "",
+    paymentMethod: "",
+    note: ""
+  };
 
   const validationSchema = Yup.object().shape({
     phone: Yup.string()
@@ -51,10 +62,11 @@ export default function CheckoutBody() {
       "Vui lòng chọn phương thức thanh toán"
     ),
     note: Yup.string(),
-    coupon: Yup.string(),
+    // coupon: Yup.string(),
   });
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(validationSchema),
+    defaultValues: initialValue
   });
 
   const totalMoney = carts.reduce((total, cart) => {
@@ -71,22 +83,37 @@ export default function CheckoutBody() {
         address: data.address,
         phone: data.phone,
         note: data.note ? data.note : "",
-        coupon: data.coupon ? [data.coupon] : [],
+        // coupon: data.coupon ? [data.coupon] : [],
         payment_method: data.paymentMethod,
         status: 1,
         carts: carts,
-        total_amount: totalMoney - (totalMoney * totalDiscount) / 100
-      }
+        total_amount: totalMoney - (totalMoney * totalDiscount) / 100,
+      };
       setIsSubmiting(true);
-      const res: any = await orderApi.addOrder(orderData);
 
-      if (res.success) {
-        // await dispatch(getUser());
-        toast.success("Đặt hàng thành công. Cảm ơn bạn đã ủng hộ shop ^_^");
-        navigate("/");
-      } else {
-        setIsSubmiting(false);
-        toast.error(res?.message)
+      if (data.paymentMethod === PAYMENT_METHOD.onDeliveryPayment) {
+        const res: any = await orderApi.addOrder(orderData);
+        if (res.success) {
+          await dispatch(getUser());
+          toast.success("Đặt hàng thành công. Cảm ơn bạn đã ủng hộ shop ^_^");
+          reset(initialValue);
+          navigate("/tai-khoan/don-mua");
+        } else {
+          setIsSubmiting(false);
+          toast.error(res?.message);
+        }
+      }
+
+      if (data.paymentMethod === PAYMENT_METHOD.onPaypalPayment) {
+        const res: any = await dispatch(
+          orderPaymentPaypal({ body: orderData })
+        );
+        // console.log("res", res);
+        if (res?.payload?.id) {
+          window.open(res?.payload?.links[1].href, "_blank");
+          reset(initialValue);
+          navigate("/tai-khoan/don-mua");
+        }
       }
 
       setTimeout(() => {
@@ -130,8 +157,34 @@ export default function CheckoutBody() {
                   {carts.length
                     ? carts.map((item) => (
                         <TableRow key={item._id}>
-                          <TableCell>
-                            {item.product_version.product.product_name}
+                          <TableCell sx={{ fontWeight: "bold" }}>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "flex-start",
+                              }}
+                            >
+                              <img
+                                src={item.product_version.product.images[0]}
+                                alt=""
+                                style={{
+                                  width: 50,
+                                  height: 50,
+                                  objectFit: "cover",
+                                  border: '1px solid #ccc'
+                                }}
+                              />
+                              <div style={{ marginLeft: 10 }}>
+                                <p>
+                                  {item.product_version.product.product_name}
+                                </p>
+                                <p style={{ marginTop: "10px", color: "#aaa" }}>
+                                  {item.product_version.color.name} -{" "}
+                                  {item.product_version.storage.name}
+                                </p>
+                              </div>
+                            </Box>
                           </TableCell>
                           <TableCell align="right">x {item.quantity}</TableCell>
                           <TableCell align="right">
@@ -196,10 +249,10 @@ export default function CheckoutBody() {
               name="note"
               label="Ghi chú"
               icon={<Note />}
-              row={3}
+              row={5}
               control={control}
             />
-            <Controller
+            {/* <Controller
               name="coupon"
               control={control}
               render={({ field }) => {
@@ -229,7 +282,7 @@ export default function CheckoutBody() {
                   </Box>
                 );
               }}
-            />
+            /> */}
 
             <Controller
               name="paymentMethod"
@@ -269,7 +322,7 @@ export default function CheckoutBody() {
                       </Box>
                       <Box className="payment-border">
                         <FormControlLabel
-                          value="onlinePayment"
+                          value="onPaypalPayment"
                           control={<Radio />}
                           label={
                             <Box
@@ -289,7 +342,11 @@ export default function CheckoutBody() {
                         />
                       </Box>
                     </RadioGroup>
-                    <FormHelperText sx={{ color: "#d32f2f", marginLeft: "20%" }}>{error ? error.message : ""}</FormHelperText>
+                    <FormHelperText
+                      sx={{ color: "#d32f2f", marginLeft: "20%" }}
+                    >
+                      {error ? error.message : ""}
+                    </FormHelperText>
                   </FormControl>
                 );
               }}

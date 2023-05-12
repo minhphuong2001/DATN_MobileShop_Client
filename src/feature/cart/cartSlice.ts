@@ -53,15 +53,15 @@ export const addOrder = createAsyncThunk('order/addOrder', async (params: any, t
   return res;
 });
 
-// export const orderPaymentPaypal = createAsyncThunk("/payment/paypal", async (params, thunkAPI) => {
-//   const response = await orderApi.paymentPaypal(params.body);
-//   if (response) {
-//     thunkAPI.dispatch(setCarts([]));
-//     // window.open(response?.links[1].href, "_blank");
-//   }
+export const orderPaymentPaypal = createAsyncThunk("/payment/paypal", async (params: any, thunkAPI: any) => {
+  const response = await orderApi.paymentPaypal(params.body);
+  if (response) {
+    thunkAPI.dispatch(setCarts([]));
+    // window.open(response?.links[1].href, "_blank");
+  }
 
-//   return response;
-// });
+  return response;
+});
 
 type initialProductType = {
 	cartList: CartProps[];

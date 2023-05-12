@@ -6,7 +6,7 @@ interface HelmetProps {
 }
 
 export default function Helmet({ title, children }: HelmetProps) {
-  document.title = "MiMin - " + title;
+  document.title = "DTMP - " + title;
 
   return <div>{children}</div>;
 }

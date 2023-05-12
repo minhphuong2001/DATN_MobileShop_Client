@@ -4,5 +4,6 @@ export const ENDPOINT = {
 	cart: '/cart',
 	product: '/product',
 	category: '/category',
-	productVersion: '/product-version'
+	productVersion: '/product-version',
+	paypal: '/paypal'
 };

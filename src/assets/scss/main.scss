@@ -9,6 +9,8 @@
 @import './common/section';
 @import './common/loading';
 @import './common/custome-checkbox';
+@import './common/banner';
+@import './common/animation';
 
 // product
 @import './product/cart';
@@ -19,6 +21,7 @@
 @import './product/product-category';
 @import './product/product-detail';
 @import './product/product-overlay';
+@import './product/order-detail';
 
 // auth
 @import './auth/auth';

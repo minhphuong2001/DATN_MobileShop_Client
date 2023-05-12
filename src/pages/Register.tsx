@@ -16,6 +16,7 @@ export default function RegisterPage() {
 
   const initialValue = {
     email: "",
+    fullname: "",
     password: "",
     confirmPassword: "",
   };
@@ -27,6 +28,8 @@ export default function RegisterPage() {
       .matches(
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
       ),
+    fullname: Yup.string()
+      .required("Vui lòng nhập họ tên"),
     password: Yup.string()
       .required("Vui lòng nhập mật khẩu")
       .min(6, "Tối thiểu 6 kí tự")
@@ -73,6 +76,7 @@ export default function RegisterPage() {
               <h1>Tạo tài khoản</h1>
               <br />
               <InputField label="Email" name="email" control={control} />
+              <InputField label="Họ tên" name="fullname" control={control} />
               <InputField
                 label="Mật khẩu"
                 name="password"
@@ -114,9 +118,9 @@ export default function RegisterPage() {
           <div className="overlay-container2">
             <div className="overlay2">
               <div className="overlay-panel2 overlay-left">
-                <h1>Chào mừng quay trở lại với Mimin!</h1>
+                <h1>Chào mừng quay trở lại với DTMP!</h1>
                 <p className="title-auth">
-                  Để giữ kết nối với Mimin, vui lòng đăng nhập bằng thông tin cá
+                  Để giữ kết nối với DTMP, vui lòng đăng nhập bằng thông tin cá
                   nhân của bạn
                 </p>
                 <button

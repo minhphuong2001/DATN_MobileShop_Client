@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    padding-top: 30px;
 
     &-item {
       position: relative;
@@ -67,6 +67,10 @@
         width: 100%;
       }
     }
+  }
+
+  .tab-content {
+    padding: 60px 0;
   }
 
   &_header {
@@ -151,7 +155,13 @@
     }
 
     &_name {
+      width: calc(100% - 70px) !important;
       margin-left: 10px;
+    }
+
+    &_attribute {
+      margin-top: 10px;
+      color: var(--txt-gray2);
     }
   }
 

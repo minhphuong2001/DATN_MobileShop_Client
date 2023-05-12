@@ -1,6 +1,6 @@
+import { Navigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 
 function ProtectedRoute(WrappedComponent: any) {
   function HOC(props: any) {

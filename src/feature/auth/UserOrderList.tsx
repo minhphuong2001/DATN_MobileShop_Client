@@ -25,18 +25,21 @@ export default function UserOrderList() {
     let statusName = "";
     switch (status) {
       case 1:
-        statusName = "Đang chờ";
+        statusName = "Chờ xác nhận";
         break;
       case 2:
-        statusName = "Đang giao hàng";
+        statusName = "Xác nhận";
         break;
       case 3:
-        statusName = "Giao hàng thành công";
+        statusName = "Đang giao";
         break;
       case 4:
-        statusName = "Đã thanh toán";
+        statusName = "Giao hàng thành công";
         break;
       case 5:
+        statusName = "Đã thanh toán";
+        break;
+      case 6:
         statusName = "Đã hủy";
         break;
       default:
@@ -67,6 +70,10 @@ export default function UserOrderList() {
         bgcColor = "rgb(181, 246, 219)";
         break;
       case 5:
+        color = "#33d067";
+        bgcColor = "rgb(181, 246, 219)";
+        break;
+      case 6:
         color = "red";
         bgcColor = "rgb(247, 128, 122)";
         break;
@@ -98,59 +105,69 @@ export default function UserOrderList() {
   const body = isLoading ? (
     <CircularProgress color="success" />
   ) : !listOrder.length ? (
-    <Box sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ pb: 1 }}>Bạn chưa có đơn hàng nào.</Typography>
+    <Box sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ pb: 1 }}>
+        Bạn chưa có đơn hàng nào.
+      </Typography>
       <Link to="/" className="back">
-        Đến ngay gian hàng để mua nào.
+        Đến ngay gian hàng để mua.
       </Link>
     </Box>
   ) : (
-    <TableContainer component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell sx={{ fontWeight: 'bold' }}>Mã đơn đặt</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Trạng thái</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Ngày đặt</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Giá tiền</TableCell>
-            <TableCell sx={{ fontWeight: 'bold' }}>Chi tiết đơn hàng</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {listOrder.map((item, index) => {
-            const quantity = item.order_details.reduce((acc, qty) => {
-              return acc + qty.quantity;
-            }, 0);
-            return (
-              <TableRow key={item._id}>
-                <TableCell>#{(item._id).slice(0,8)}</TableCell>
-                <TableCell>
-                  <div
-                    style={{
-                      backgroundColor: StatusColor(item.status).bgcColor,
-                      color: StatusColor(item.status).color,
-                      borderRadius: 20,
-                      textAlign: "center",
-                      padding: "3px",
-                    }}
-                  >
-                    {StatusTypeName(item.status)}
-                  </div>
-                </TableCell>
-                <TableCell>{TimeFormate(item.createdAt)}</TableCell>
-								<TableCell>
-									<span style={{ color: 'red', fontWeight: 'bold' }}>{MoneyFormat(item.total_amount)}</span> {" "}
-                   VND cho <span style={{ fontWeight: 'bold' }}>{quantity}</span> sản phẩm
-                </TableCell>
-                <TableCell>
-                  <Link to={`${item._id}`}>Xem chi tiết</Link>
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+      <TableContainer component={Paper}>
+        <Table aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ fontWeight: "bold" }}>Mã đơn đặt</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }}>Trạng thái</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }}>Ngày đặt</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }}>Giá tiền</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }}>
+                Chi tiết đơn hàng
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {listOrder.map((item, index) => {
+              const quantity = item.order_details.reduce((acc, qty) => {
+                return acc + qty.quantity;
+              }, 0);
+              return (
+                <TableRow key={item._id}>
+                  <TableCell>#{item._id.slice(0, 8)}</TableCell>
+                  <TableCell>
+                    <div
+                      style={{
+                        backgroundColor: StatusColor(item.status).bgcColor,
+                        color: StatusColor(item.status).color,
+                        borderRadius: 20,
+                        textAlign: "center",
+                        padding: "3px",
+                      }}
+                    >
+                      {StatusTypeName(item.status)}
+                    </div>
+                  </TableCell>
+                  <TableCell>{TimeFormate(item.createdAt)}</TableCell>
+                  <TableCell>
+                    <span style={{ color: "red", fontWeight: "bold" }}>
+                      {MoneyFormat(item.total_amount)}
+                    </span>{" "}
+                    VND cho{" "}
+                    <span style={{ fontWeight: "bold" }}>{quantity}</span> sản
+                    phẩm
+                  </TableCell>
+                  <TableCell>
+                    <Link to={`${item._id}`}>Xem chi tiết</Link>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 
   return body;

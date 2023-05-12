@@ -35,6 +35,7 @@ export default function MyAccount() {
       if (res.success) {
         localStorage.removeItem(LOCAL_STORAGE.accessToken);
         localStorage.removeItem(LOCAL_STORAGE.refreshToken);
+        localStorage.removeItem(LOCAL_STORAGE.userInfo);
         setAuthToken(null);
         dispatch(logout());
         navigate("/dang-nhap");
@@ -63,7 +64,7 @@ export default function MyAccount() {
               }`}
             >
               <ShoppingBasket />
-              <Link to={`/tai-khoan/don-mua`}>Đơn hàng</Link>
+              <Link to={`/tai-khoan/don-mua`}>Đơn hàng của tôi</Link>
             </div>
             <div
               className={`my-account__menu__item ${

@@ -15,7 +15,7 @@ function PolicyCard(item: PolicyProps) {
 
 export default function Policy() {
   return (
-    <div className="policy container" style={{ marginBottom: "50px" }}>
+    <div className="policy container" style={{ marginBottom: "50px", marginTop: "50px" }}>
       <div className="row">
         {policy.map((item: PolicyProps, index: number) => {
           return (
