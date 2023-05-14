@@ -35,7 +35,7 @@ import orderApi from "../../api/orderApi";
 import { toast } from "react-toastify";
 import { PAYMENT_METHOD } from "../../constants/global";
 import { AppDispatch } from "../../app/store";
-import { orderPaymentPaypal } from "../cart/cartSlice";
+import { getCountCart, orderPaymentPaypal, setCarts } from "../cart/cartSlice";
 import { UserProps } from "../../types/user";
 import { getUser } from "../auth/authSlice";
 
@@ -94,7 +94,8 @@ export default function CheckoutBody() {
       if (data.paymentMethod === PAYMENT_METHOD.onDeliveryPayment) {
         const res: any = await orderApi.addOrder(orderData);
         if (res.success) {
-          await dispatch(getUser());
+          dispatch(getCountCart());
+          dispatch(setCarts([]));
           toast.success("Đặt hàng thành công. Cảm ơn bạn đã ủng hộ shop ^_^");
           reset(initialValue);
           navigate("/tai-khoan/don-mua");
@@ -110,6 +111,8 @@ export default function CheckoutBody() {
         );
         // console.log("res", res);
         if (res?.payload?.id) {
+          dispatch(getCountCart());
+          dispatch(setCarts([]));
           window.open(res?.payload?.links[1].href, "_blank");
           reset(initialValue);
           navigate("/tai-khoan/don-mua");
@@ -176,7 +179,7 @@ export default function CheckoutBody() {
                                 }}
                               />
                               <div style={{ marginLeft: 10 }}>
-                                <p>
+                                <p style={{ textTransform: "capitalize" }}>
                                   {item.product_version.product.product_name}
                                 </p>
                                 <p style={{ marginTop: "10px", color: "#aaa" }}>

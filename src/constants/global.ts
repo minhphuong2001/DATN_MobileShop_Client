@@ -1,5 +1,5 @@
 export const PAGE_DEFAULT = 1;
-export const LIMIT_DEFAULT = 12;
+export const LIMIT_DEFAULT = 20;
 
 export const LOCAL_STORAGE = {
 	accessToken: 'dtmp-shop-token',

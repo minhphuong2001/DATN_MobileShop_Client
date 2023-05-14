@@ -34,6 +34,7 @@ const initialOrder = {
   address: "",
   phone: "",
   total_amount: 0,
+  statusPayment: 1,
   user: {
     email: "",
     password: "",
@@ -132,7 +133,7 @@ export default function UserOrderDetail() {
       <IconButton size="medium" sx={{ mb: 1 }} onClick={() => navigate(-1)}>
         <ArrowBack fontSize="inherit" />
       </IconButton>
-          
+
       {/* step order */}
       {order.status !== 6 && <OrderStep status={order.status} />}
 
@@ -164,27 +165,8 @@ export default function UserOrderDetail() {
             justifyContent: "flex-end",
           }}
         >
-          <Button
-            variant="outlined"
-            color="error"
-            size="small"
-          >
+          <Button variant="outlined" color="error" size="small">
             Đơn hàng đã được hủy
-          </Button>
-        </Box>
-      )}
-
-      {order.status === 5 && (
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            mt: 2,
-          }}
-        >
-          <Button variant="outlined" color="primary" size="small">
-            Đã thanh toán
           </Button>
         </Box>
       )}
@@ -271,6 +253,16 @@ export default function UserOrderDetail() {
                     {order.payment_method === "onPaypalPayment"
                       ? "Thanh toán bằng Paypal"
                       : "Thanh toán khi nhận hàng"}
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell colSpan={4}>Trạng thái thanh toán</TableCell>
+                  <TableCell>
+                    <Button variant="outlined" color={order.statusPayment === Number(1) ? "warning" : "success"} size="small">
+                      {order.statusPayment === Number(1)
+                        ? "Chưa thanh toán"
+                        : "Đã thanh toán"}
+                    </Button>
                   </TableCell>
                 </TableRow>
                 <TableRow>

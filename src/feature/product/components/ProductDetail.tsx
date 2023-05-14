@@ -199,14 +199,13 @@ export default function ProductDetail({ productVersion }: any) {
           <div className="info-title">
             {productVersion[0]?.product?.product_name}
           </div>
-          <div className="info-item">
-            <span className="info-item__price">
-              {/* {MoneyFormat(
-                product?.price - (product?.price * product?.discount) / 100
-              )}{" "}
-              VND */}
+          <div className="info-item" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start'}}>
+            <p className="info-item__price">
               {MoneyFormat(productVersion[0]?.product?.price)}
-            </span>
+            </p>
+            <p style={{ color: "#ccc", fontSize: 20, textDecoration: "line-through", marginLeft: 10 }}>
+              {MoneyFormat(productVersion[0]?.product?.price + 500000)}
+            </p>
           </div>
 
           <div className="info-item">

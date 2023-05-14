@@ -15,6 +15,7 @@ export interface OrderTypes {
 	order_details: OrderDetailTypes[];
 	createdAt: string;
 	updatedAt: string;
+	statusPayment: number;
 }
 
 export interface OrderDetailTypes {

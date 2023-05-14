@@ -25,25 +25,25 @@ export default function UserOrderList() {
     let statusName = "";
     switch (status) {
       case 1:
-        statusName = "Chờ xác nhận";
+        statusName = "Đặt hàng thành công";
         break;
       case 2:
-        statusName = "Xác nhận";
+        statusName = "Đã xác nhận";
         break;
       case 3:
-        statusName = "Đang giao";
+        statusName = "Đang chuẩn bị hàng";
         break;
       case 4:
-        statusName = "Giao hàng thành công";
+        statusName = "Đang giao";
         break;
       case 5:
-        statusName = "Đã thanh toán";
+        statusName = "Giao hàng thành công";
         break;
       case 6:
         statusName = "Đã hủy";
         break;
       default:
-        statusName = "Đang chờ";
+        statusName = "Đã xác nhận";
         break;
     }
     return statusName;

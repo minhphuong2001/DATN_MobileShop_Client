@@ -74,7 +74,7 @@ function ColorlibStepIcon(props: StepIconProps) {
   );
 }
 
-const steps = ['Đặt hành thành công', 'Chờ xác nhận', 'Đã xác nhận', 'Đang giao', 'Giao hàng thành công'];
+const steps = ['Đặt hành thành công', 'Đã xác nhận', 'Đang chuẩn bị hàng', 'Đang giao', 'Giao hàng thành công'];
 
 interface OrderStepProps {
 	status: number;
@@ -83,7 +83,7 @@ interface OrderStepProps {
 export default function OrderStep( {status }: OrderStepProps) {
   return (
     <Stack sx={{ width: '100%' }} spacing={4}>
-      <Stepper alternativeLabel activeStep={status} connector={<ColorlibConnector />}>
+      <Stepper alternativeLabel activeStep={status - 1 } connector={<ColorlibConnector />}>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
