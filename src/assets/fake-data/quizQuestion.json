@@ -1,0 +1,131 @@
+{
+  "questions": [
+    {
+      "title": "How to declare JavaScript variables?",
+      "options": [
+        {
+          "title": "with var",
+          "correct": true
+        },
+        {
+          "title": "with let",
+          "correct": true
+        },
+        {
+          "title": "with const",
+          "correct": true
+        },
+        {
+          "title": "with variable"
+        },
+        {
+          "title": "with declare"
+        },
+        {
+          "title": "with new"
+        }
+      ]
+    },
+    {
+      "title": "When was JavaScript invented?",
+      "options": [
+        {
+          "title": "September 1998"
+        },
+        {
+          "title": "October 1999"
+        },
+        {
+          "title": "September 1995",
+          "correct": true
+        },
+        {
+          "title": "January 1995"
+        },
+        {
+          "title": "December 1995"
+        },
+        {
+          "title": "March 1996"
+        }
+      ]
+    },
+    {
+      "title": "Who or which company created JavaScript?",
+      "options": [
+        {
+          "title": "Jordan Walke"
+        },
+        {
+          "title": "Netscape",
+          "correct": true
+        },
+        {
+          "title": "Jack Ma"
+        },
+
+        {
+          "title": "Tarzan"
+        },
+        {
+          "title": "Brendan Eich",
+          "correct": true
+        },
+        {
+          "title": "Oracle"
+        }
+      ]
+    },
+    {
+      "title": "What is the latest version of ECMAScript till 2023?",
+      "options": [
+        {
+          "title": "ES2020"
+        },
+        {
+          "title": "ES2021",
+          "correct": true
+        },
+        {
+          "title": "ES6"
+        },
+        {
+          "title": "ES23"
+        },
+        {
+          "title": "ES2022"
+        },
+        {
+          "title": "ES2022"
+        }
+      ]
+    },
+    {
+      "title": "Which of the following methods is used to access HTML elements using Javascript?",
+      "options": [
+        {
+          "title": "getElementById()",
+          "correct": true
+        },
+        {
+          "title": "getElementByClassName()",
+          "correct": true
+        },
+        {
+          "title": "getElementsByTagName()",
+          "correct": true
+        },
+        {
+          "title": "querySelectorAll()",
+          "correct": true
+        },
+        {
+          "title": "selectElement()"
+        },
+        {
+          "title": "All of the above"
+        }
+      ]
+    }
+  ]
+}
