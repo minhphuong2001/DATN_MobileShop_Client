@@ -126,6 +126,246 @@
           "title": "All of the above"
         }
       ]
+    },
+    {
+      "title": "What does CSS stand for?",
+      "options": [
+        {
+          "title": "Computer Style Sheets"
+        },
+        {
+          "title": "Cascading Style Sheet"
+        },
+        {
+          "title": "Colorful Style Sheets"
+        },
+        {
+          "title": "Creative Style Sheets"
+        },
+        {
+          "title": "Conjugated Style Sheet"
+        },
+        {
+          "title": "Cascading Style Sheets",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "title": "Which HTML tag is used to define an internal style sheet?",
+      "options": [
+        {
+          "title": "<css>"
+        },
+        {
+          "title": "<style>",
+          "correct": true
+        },
+        {
+          "title": "<script>"
+        },
+        {
+          "title": "<style/css>"
+        },
+        {
+          "title": "<css/style>"
+        },
+        {
+          "title": "None tag needed for that"
+        }
+      ]
+    },
+    {
+      "title": "How to insert a comment in a CSS file?",
+      "options": [
+        {
+          "title": "// This is a comment //"
+        },
+        {
+          "title": "/* This is a comment */",
+          "correct": true
+        },
+        {
+          "title": "// This is a comment"
+        },
+        {
+          "title": "' This is a comment"
+        },
+        {
+          "title": "! This is a comment"
+        },
+        {
+          "title": "{ This is a comment }"
+        }
+      ]
+    },
+    {
+      "title": "How to add a background color for all <h1> elements?",
+      "options": [
+        {
+          "title": "all.h1 {background-color:#FFFFFF;}"
+        },
+        {
+          "title": "h1 {background-color:#FFFFFF;}",
+          "correct": true
+        },
+        {
+          "title": "h1.all {background-color:#FFFFFF;}"
+        },
+        {
+          "title": "h1 > h1 {background-color:#FFFFFF;}"
+        },
+        {
+          "title": "All are correct"
+        },
+        {
+          "title": "It is impossible to do so"
+        }
+      ]
+    },
+    {
+      "title": "How to display hyperlinks without an underline?",
+      "options": [
+        {
+          "title": "a {decoration:no-underline;}"
+        },
+        {
+          "title": "a {text-decoration:no-underline;}"
+        },
+        {
+          "title": "a {underline:none;}"
+        },
+        {
+          "title": "a {text-decoration:none;}",
+          "correct": true
+        },
+        {
+          "title": "a > link {text-decoration:none;}"
+        },
+        {
+          "title": "None of the above"
+        }
+      ]
+    },
+    {
+      "title": "A measure of the amount of memory needed for an algorithm to execute is called:",
+      "options": [
+        {
+          "title": "Time Efficiency"
+        },
+        {
+          "title": "Functional Efficiency"
+        },
+        {
+          "title": "Space Efficiency",
+          "correct": true
+        },
+        {
+          "title": "Amortized Efficiency"
+        },
+        {
+          "title": "No Functional Efficiency"
+        },
+        {
+          "title": "None of the above"
+        }
+      ]
+    },
+    {
+      "title": "What is the average time complexity of Merge Sort?",
+      "options": [
+        {
+          "title": "O(N)"
+        },
+        {
+          "title": "O(N*Log(M))"
+        },
+        {
+          "title": "O(N*Log(N))",
+          "correct": true
+        },
+        {
+          "title": "O(Log(N))"
+        },
+        {
+          "title": "O(1)"
+        },
+        {
+          "title": "No one can measure this."
+        }
+      ]
+    },
+    {
+      "title": "What does it mean when we say that an algorithm X is asymptotically more efficient than Y?",
+      "options": [
+        {
+          "title": "X will always be a better choice for small inputs"
+        },
+        {
+          "title": "X will always be a better choice for large inputs",
+          "correct": true
+        },
+        {
+          "title": "Y will always be a better choice for small inputs"
+        },
+        {
+          "title": "X will always be a better choice for all inputs"
+        },
+        {
+          "title": "X will not be a better choice for small inputs"
+        },
+        {
+          "title": "Y will not be a better choice for small inputs"
+        }
+      ]
+    },
+    {
+      "title": "What is the time complexity of Sieve of Eratosthenes process?",
+      "options": [
+        {
+          "title": "O(Log(N))"
+        },
+        {
+          "title": "O(N*Log(N))"
+        },
+        {
+          "title": "O(Log(Log(N)))"
+        },
+        {
+          "title": "O(N*Log(Log(N)))",
+          "correct": true
+        },
+        {
+          "title": "O(N)"
+        },
+        {
+          "title": "None of the above"
+        }
+      ]
+    },
+    {
+      "title": "What is the Minimum average time complexity to search a value with an 1D array?",
+      "options": [
+        {
+          "title": "O(1)"
+        },
+        {
+          "title": "O(N)"
+        },
+        {
+          "title": "O(Log3(N))",
+          "correct": true
+        },
+        {
+          "title": "O(Log(N))"
+        },
+        {
+          "title": "O(N^2)"
+        },
+        {
+          "title": "None of the above"
+        }
+      ]
     }
   ]
 }
