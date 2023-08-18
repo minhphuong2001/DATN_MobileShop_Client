@@ -70,24 +70,25 @@
         },
         {
           "title": "ES2022"
-        },
+        }
       ]
     },
     {
       "title": "Which of the following methods is used to access HTML elements using Javascript?",
       "options": [
         {
-          "title": "getElementById()",
+          "title": "getElementById()"
         },
         {
-          "title": "getElementByClassName()",
+          "title": "getElementByClassName()"
         },
         {
-          "title": "getElementsByTagName()",
+          "title": "getElementsByTagName()"
         },
+        {
           "title": "All",
           "correct": true
-        },
+        }
       ]
     },
     {
@@ -159,7 +160,7 @@
         },
         {
           "title": "All are correct"
-        },
+        }
       ]
     },
     {
@@ -231,7 +232,7 @@
         },
         {
           "title": "X will always be a better choice for all inputs"
-        },
+        }
       ]
     },
     {
