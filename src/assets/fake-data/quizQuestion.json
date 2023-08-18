@@ -8,14 +8,6 @@
           "correct": true
         },
         {
-          "title": "with let",
-          "correct": true
-        },
-        {
-          "title": "with const",
-          "correct": true
-        },
-        {
           "title": "with variable"
         },
         {
@@ -41,12 +33,6 @@
         },
         {
           "title": "January 1995"
-        },
-        {
-          "title": "December 1995"
-        },
-        {
-          "title": "March 1996"
         }
       ]
     },
@@ -66,22 +52,12 @@
 
         {
           "title": "Tarzan"
-        },
-        {
-          "title": "Brendan Eich",
-          "correct": true
-        },
-        {
-          "title": "Oracle"
         }
       ]
     },
     {
       "title": "What is the latest version of ECMAScript till 2023?",
       "options": [
-        {
-          "title": "ES2020"
-        },
         {
           "title": "ES2021",
           "correct": true
@@ -95,9 +71,6 @@
         {
           "title": "ES2022"
         },
-        {
-          "title": "ES2022"
-        }
       ]
     },
     {
@@ -105,26 +78,16 @@
       "options": [
         {
           "title": "getElementById()",
-          "correct": true
         },
         {
           "title": "getElementByClassName()",
-          "correct": true
         },
         {
           "title": "getElementsByTagName()",
+        },
+          "title": "All",
           "correct": true
         },
-        {
-          "title": "querySelectorAll()",
-          "correct": true
-        },
-        {
-          "title": "selectElement()"
-        },
-        {
-          "title": "All of the above"
-        }
       ]
     },
     {
@@ -135,12 +98,6 @@
         },
         {
           "title": "Cascading Style Sheet"
-        },
-        {
-          "title": "Colorful Style Sheets"
-        },
-        {
-          "title": "Creative Style Sheets"
         },
         {
           "title": "Conjugated Style Sheet"
@@ -160,12 +117,6 @@
         {
           "title": "<style>",
           "correct": true
-        },
-        {
-          "title": "<script>"
-        },
-        {
-          "title": "<style/css>"
         },
         {
           "title": "<css/style>"
@@ -189,12 +140,6 @@
           "title": "// This is a comment"
         },
         {
-          "title": "' This is a comment"
-        },
-        {
-          "title": "! This is a comment"
-        },
-        {
           "title": "{ This is a comment }"
         }
       ]
@@ -202,9 +147,6 @@
     {
       "title": "How to add a background color for all <h1> elements?",
       "options": [
-        {
-          "title": "all.h1 {background-color:#FFFFFF;}"
-        },
         {
           "title": "h1 {background-color:#FFFFFF;}",
           "correct": true
@@ -218,17 +160,11 @@
         {
           "title": "All are correct"
         },
-        {
-          "title": "It is impossible to do so"
-        }
       ]
     },
     {
       "title": "How to display hyperlinks without an underline?",
       "options": [
-        {
-          "title": "a {decoration:no-underline;}"
-        },
         {
           "title": "a {text-decoration:no-underline;}"
         },
@@ -240,9 +176,6 @@
           "correct": true
         },
         {
-          "title": "a > link {text-decoration:none;}"
-        },
-        {
           "title": "None of the above"
         }
       ]
@@ -251,17 +184,11 @@
       "title": "A measure of the amount of memory needed for an algorithm to execute is called:",
       "options": [
         {
-          "title": "Time Efficiency"
-        },
-        {
           "title": "Functional Efficiency"
         },
         {
           "title": "Space Efficiency",
           "correct": true
-        },
-        {
-          "title": "Amortized Efficiency"
         },
         {
           "title": "No Functional Efficiency"
@@ -275,9 +202,6 @@
       "title": "What is the average time complexity of Merge Sort?",
       "options": [
         {
-          "title": "O(N)"
-        },
-        {
           "title": "O(N*Log(M))"
         },
         {
@@ -286,9 +210,6 @@
         },
         {
           "title": "O(Log(N))"
-        },
-        {
-          "title": "O(1)"
         },
         {
           "title": "No one can measure this."
@@ -311,12 +232,6 @@
         {
           "title": "X will always be a better choice for all inputs"
         },
-        {
-          "title": "X will not be a better choice for small inputs"
-        },
-        {
-          "title": "Y will not be a better choice for small inputs"
-        }
       ]
     },
     {
@@ -334,24 +249,12 @@
         {
           "title": "O(N*Log(Log(N)))",
           "correct": true
-        },
-        {
-          "title": "O(N)"
-        },
-        {
-          "title": "None of the above"
         }
       ]
     },
     {
       "title": "What is the Minimum average time complexity to search a value with an 1D array?",
       "options": [
-        {
-          "title": "O(1)"
-        },
-        {
-          "title": "O(N)"
-        },
         {
           "title": "O(Log3(N))",
           "correct": true
