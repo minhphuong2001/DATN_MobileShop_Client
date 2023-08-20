@@ -1,6 +1,7 @@
 {
   "questions": [
     {
+      "topic": "general_knowledge",
       "title": "How to declare JavaScript variables?",
       "options": [
         {
@@ -19,6 +20,7 @@
       ]
     },
     {
+      "topic": "general_knowledge",
       "title": "When was JavaScript invented?",
       "options": [
         {
@@ -37,6 +39,7 @@
       ]
     },
     {
+      "topic": "general_knowledge",
       "title": "Who or which company created JavaScript?",
       "options": [
         {
@@ -56,6 +59,7 @@
       ]
     },
     {
+      "topic": "general_knowledge",
       "title": "What is the latest version of ECMAScript till 2023?",
       "options": [
         {
@@ -74,6 +78,7 @@
       ]
     },
     {
+      "topic": "general_knowledge",
       "title": "Which of the following methods is used to access HTML elements using Javascript?",
       "options": [
         {
@@ -92,6 +97,7 @@
       ]
     },
     {
+      "topic": "mathematics",
       "title": "What does CSS stand for?",
       "options": [
         {
@@ -110,6 +116,7 @@
       ]
     },
     {
+      "topic": "mathematics",
       "title": "Which HTML tag is used to define an internal style sheet?",
       "options": [
         {
@@ -128,6 +135,7 @@
       ]
     },
     {
+      "topic": "mathematics",
       "title": "How to insert a comment in a CSS file?",
       "options": [
         {
@@ -146,6 +154,7 @@
       ]
     },
     {
+      "topic": "mathematics",
       "title": "How to add a background color for all <h1> elements?",
       "options": [
         {
@@ -164,6 +173,7 @@
       ]
     },
     {
+      "topic": "mathematics",
       "title": "How to display hyperlinks without an underline?",
       "options": [
         {
@@ -182,6 +192,7 @@
       ]
     },
     {
+      "topic": "computer_technology",
       "title": "A measure of the amount of memory needed for an algorithm to execute is called:",
       "options": [
         {
@@ -200,6 +211,7 @@
       ]
     },
     {
+      "topic": "computer_technology",
       "title": "What is the average time complexity of Merge Sort?",
       "options": [
         {
@@ -218,6 +230,7 @@
       ]
     },
     {
+      "topic": "computer_technology",
       "title": "What does it mean when we say that an algorithm X is asymptotically more efficient than Y?",
       "options": [
         {
@@ -236,6 +249,7 @@
       ]
     },
     {
+      "topic": "computer_technology",
       "title": "What is the time complexity of Sieve of Eratosthenes process?",
       "options": [
         {
@@ -254,6 +268,7 @@
       ]
     },
     {
+      "topic": "computer_technology",
       "title": "What is the Minimum average time complexity to search a value with an 1D array?",
       "options": [
         {
