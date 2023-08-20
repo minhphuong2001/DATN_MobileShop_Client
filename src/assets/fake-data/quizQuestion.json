@@ -2,287 +2,280 @@
   "questions": [
     {
       "topic": "general_knowledge",
-      "title": "How to declare JavaScript variables?",
+      "title": "Khi gặp Thúy Kiều, Kim Trọng trao cho vật gì làm tin?",
       "options": [
         {
-          "title": "with var",
+          "title": "Dải yếm"
+        },
+        {
+          "title": "Miếng lụa"
+        },
+        {
+          "title": "Châm cài tóc"
+        },
+        {
+          "title": "Chiếc khăn hồng",
           "correct": true
-        },
-        {
-          "title": "with variable"
-        },
-        {
-          "title": "with declare"
-        },
-        {
-          "title": "with new"
         }
       ]
     },
     {
       "topic": "general_knowledge",
-      "title": "When was JavaScript invented?",
+      "title": "Quốc hiệu đầu tiên của nước ta là gì?",
       "options": [
         {
-          "title": "September 1998"
+          "title": "Đại việt"
         },
         {
-          "title": "October 1999"
+          "title": "Đại Nam"
         },
         {
-          "title": "September 1995",
+          "title": "Văn Lang",
           "correct": true
         },
         {
-          "title": "January 1995"
+          "title": "Đáp án khác"
         }
       ]
     },
     {
       "topic": "general_knowledge",
-      "title": "Who or which company created JavaScript?",
+      "title": "Thác nước nào cao nhất thế giới?",
       "options": [
         {
-          "title": "Jordan Walke"
+          "title": "Thác Victoria (Zimbabwe)"
         },
         {
-          "title": "Netscape",
+          "title": "Thác Niagara (Canada)"
+        },
+        {
+          "title": "Thác Angel (Venezuela)",
           "correct": true
         },
         {
-          "title": "Jack Ma"
-        },
-
-        {
-          "title": "Tarzan"
+          "title": "Thác Iguazu (Argentina và Brazil)"
         }
       ]
     },
     {
       "topic": "general_knowledge",
-      "title": "What is the latest version of ECMAScript till 2023?",
+      "title": "Hươu cao cổ cỏ ăn có không?",
       "options": [
         {
-          "title": "ES2021",
+          "title": "Có",
           "correct": true
         },
         {
-          "title": "ES6"
+          "title": "Không"
         },
         {
-          "title": "ES23"
-        },
-        {
-          "title": "ES2022"
+          "title": "Cả hai"
         }
       ]
     },
     {
       "topic": "general_knowledge",
-      "title": "Which of the following methods is used to access HTML elements using Javascript?",
+      "title": "Tàu Titanic chìm ở Đại Tây Dương vào năm nào?",
       "options": [
         {
-          "title": "getElementById()"
+          "title": "1991"
         },
         {
-          "title": "getElementByClassName()"
+          "title": "1990"
         },
         {
-          "title": "getElementsByTagName()"
+          "title": "1993"
         },
         {
-          "title": "All",
+          "title": "1992",
           "correct": true
         }
       ]
     },
     {
       "topic": "mathematics",
-      "title": "What does CSS stand for?",
+      "title": "Cho h+20:20àm số y = 3/ x-2 . Số tiệm cận của đồ thị hàm số là:?",
       "options": [
         {
-          "title": "Computer Style Sheets"
+          "title": "0"
         },
         {
-          "title": "Cascading Style Sheet"
+          "title": "2"
         },
         {
-          "title": "Conjugated Style Sheet"
+          "title": "3"
         },
         {
-          "title": "Cascading Style Sheets",
+          "title": "1",
           "correct": true
         }
       ]
     },
     {
       "topic": "mathematics",
-      "title": "Which HTML tag is used to define an internal style sheet?",
+      "title": "Nếu A + B = 76 và A - B = 38 thì A : B = ?",
       "options": [
         {
-          "title": "<css>"
+          "title": "4"
         },
         {
-          "title": "<style>",
+          "title": "3",
           "correct": true
         },
         {
-          "title": "<css/style>"
+          "title": "5"
         },
         {
-          "title": "None tag needed for that"
+          "title": "6"
         }
       ]
     },
     {
       "topic": "mathematics",
-      "title": "How to insert a comment in a CSS file?",
+      "title": "1 + 1= ?",
       "options": [
         {
-          "title": "// This is a comment //"
+          "title": "0"
         },
         {
-          "title": "/* This is a comment */",
+          "title": "2",
           "correct": true
         },
         {
-          "title": "// This is a comment"
+          "title": "3"
         },
         {
-          "title": "{ This is a comment }"
+          "title": "11"
         }
       ]
     },
     {
       "topic": "mathematics",
-      "title": "How to add a background color for all <h1> elements?",
+      "title": "Nếu 5 con gà ấp 5 quả trứng trong 5 ngày là xong, vậy cần bao nhiêu ngày để 100 con gà ấp xong 100 quả trứng?",
       "options": [
         {
-          "title": "h1 {background-color:#FFFFFF;}",
+          "title": "5",
           "correct": true
         },
         {
-          "title": "h1.all {background-color:#FFFFFF;}"
+          "title": "3"
         },
         {
-          "title": "h1 > h1 {background-color:#FFFFFF;}"
+          "title": "1"
         },
         {
-          "title": "All are correct"
+          "title": "15"
         }
       ]
     },
     {
       "topic": "mathematics",
-      "title": "How to display hyperlinks without an underline?",
+      "title": "Cho tập A={1,2,3,4,5,6,7,8,9} Tập B={1,2,3,9,10}, Tập A-B là:",
       "options": [
         {
-          "title": "a {text-decoration:no-underline;}"
+          "title": "{1,2,3,9}"
         },
         {
-          "title": "a {underline:none;}"
-        },
-        {
-          "title": "a {text-decoration:none;}",
+          "title": "{4,5,6,7,8}",
           "correct": true
         },
         {
-          "title": "None of the above"
+          "title": "{10}"
+        },
+        {
+          "title": " {1,2,3,9,10}"
         }
       ]
     },
     {
       "topic": "computer_technology",
-      "title": "A measure of the amount of memory needed for an algorithm to execute is called:",
+      "title": "Giao thức được sử dụng phổ biến trên Internet là:",
       "options": [
         {
-          "title": "Functional Efficiency"
+          "title": "Ethernet"
         },
         {
-          "title": "Space Efficiency",
+          "title": "TCP/IP",
           "correct": true
         },
         {
-          "title": "No Functional Efficiency"
+          "title": "OSI"
         },
         {
-          "title": "None of the above"
+          "title": "IEEE"
         }
       ]
     },
     {
       "topic": "computer_technology",
-      "title": "What is the average time complexity of Merge Sort?",
+      "title": "Nếu 4 PCs kết nối với nhau thông qua HUB thì cần bao nhiêu địa chỉ IP cho 5 trang thiết bị mạng này?",
       "options": [
         {
-          "title": "O(N*Log(M))"
+          "title": "1"
         },
         {
-          "title": "O(N*Log(N))",
+          "title": "2",
           "correct": true
         },
         {
-          "title": "O(Log(N))"
+          "title": "3"
         },
         {
-          "title": "No one can measure this."
+          "title": "4"
         }
       ]
     },
     {
       "topic": "computer_technology",
-      "title": "What does it mean when we say that an algorithm X is asymptotically more efficient than Y?",
+      "title": "Độ dài tối đa cho phép khi sử dụng dây cáp mạng UTP là bao nhiêu mét?",
       "options": [
         {
-          "title": "X will always be a better choice for small inputs"
+          "title": "10"
         },
         {
-          "title": "X will always be a better choice for large inputs",
+          "title": "100",
           "correct": true
         },
         {
-          "title": "Y will always be a better choice for small inputs"
+          "title": "200"
         },
         {
-          "title": "X will always be a better choice for all inputs"
+          "title": "600"
         }
       ]
     },
     {
       "topic": "computer_technology",
-      "title": "What is the time complexity of Sieve of Eratosthenes process?",
+      "title": "Địa chỉ nào là địa chỉ broadcast của lớp 2?",
       "options": [
         {
-          "title": "O(Log(N))"
+          "title": "111.111.111.111"
         },
         {
-          "title": "O(N*Log(N))"
+          "title": "AAAA.AAAA.AAAA"
         },
         {
-          "title": "O(Log(Log(N)))"
+          "title": "255.255.255.255"
         },
         {
-          "title": "O(N*Log(Log(N)))",
+          "title": "FFFF.FFFF.FFFF",
           "correct": true
         }
       ]
     },
     {
       "topic": "computer_technology",
-      "title": "What is the Minimum average time complexity to search a value with an 1D array?",
+      "title": "Switch là thiết bị hoạt động ở lớp nào của mô hình OSI:",
       "options": [
         {
-          "title": "O(Log3(N))",
+          "title": "Lớp 4",
           "correct": true
         },
         {
-          "title": "O(Log(N))"
+          "title": "Lớp 3"
         },
         {
-          "title": "O(N^2)"
-        },
-        {
-          "title": "None of the above"
+          "title": "Lớp 2"
         }
       ]
     }

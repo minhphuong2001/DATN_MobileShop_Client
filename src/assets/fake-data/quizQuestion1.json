@@ -1,0 +1,290 @@
+{
+  "questions": [
+    {
+      "topic": "general_knowledge",
+      "title": "How to declare JavaScript variables?",
+      "options": [
+        {
+          "title": "with var",
+          "correct": true
+        },
+        {
+          "title": "with variable"
+        },
+        {
+          "title": "with declare"
+        },
+        {
+          "title": "with new"
+        }
+      ]
+    },
+    {
+      "topic": "general_knowledge",
+      "title": "When was JavaScript invented?",
+      "options": [
+        {
+          "title": "September 1998"
+        },
+        {
+          "title": "October 1999"
+        },
+        {
+          "title": "September 1995",
+          "correct": true
+        },
+        {
+          "title": "January 1995"
+        }
+      ]
+    },
+    {
+      "topic": "general_knowledge",
+      "title": "Who or which company created JavaScript?",
+      "options": [
+        {
+          "title": "Jordan Walke"
+        },
+        {
+          "title": "Netscape",
+          "correct": true
+        },
+        {
+          "title": "Jack Ma"
+        },
+
+        {
+          "title": "Tarzan"
+        }
+      ]
+    },
+    {
+      "topic": "general_knowledge",
+      "title": "What is the latest version of ECMAScript till 2023?",
+      "options": [
+        {
+          "title": "ES2021",
+          "correct": true
+        },
+        {
+          "title": "ES6"
+        },
+        {
+          "title": "ES23"
+        },
+        {
+          "title": "ES2022"
+        }
+      ]
+    },
+    {
+      "topic": "general_knowledge",
+      "title": "Which of the following methods is used to access HTML elements using Javascript?",
+      "options": [
+        {
+          "title": "getElementById()"
+        },
+        {
+          "title": "getElementByClassName()"
+        },
+        {
+          "title": "getElementsByTagName()"
+        },
+        {
+          "title": "All",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "topic": "mathematics",
+      "title": "What does CSS stand for?",
+      "options": [
+        {
+          "title": "Computer Style Sheets"
+        },
+        {
+          "title": "Cascading Style Sheet"
+        },
+        {
+          "title": "Conjugated Style Sheet"
+        },
+        {
+          "title": "Cascading Style Sheets",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "topic": "mathematics",
+      "title": "Which HTML tag is used to define an internal style sheet?",
+      "options": [
+        {
+          "title": "<css>"
+        },
+        {
+          "title": "<style>",
+          "correct": true
+        },
+        {
+          "title": "<css/style>"
+        },
+        {
+          "title": "None tag needed for that"
+        }
+      ]
+    },
+    {
+      "topic": "mathematics",
+      "title": "How to insert a comment in a CSS file?",
+      "options": [
+        {
+          "title": "// This is a comment //"
+        },
+        {
+          "title": "/* This is a comment */",
+          "correct": true
+        },
+        {
+          "title": "// This is a comment"
+        },
+        {
+          "title": "{ This is a comment }"
+        }
+      ]
+    },
+    {
+      "topic": "mathematics",
+      "title": "How to add a background color for all <h1> elements?",
+      "options": [
+        {
+          "title": "h1 {background-color:#FFFFFF;}",
+          "correct": true
+        },
+        {
+          "title": "h1.all {background-color:#FFFFFF;}"
+        },
+        {
+          "title": "h1 > h1 {background-color:#FFFFFF;}"
+        },
+        {
+          "title": "All are correct"
+        }
+      ]
+    },
+    {
+      "topic": "mathematics",
+      "title": "How to display hyperlinks without an underline?",
+      "options": [
+        {
+          "title": "a {text-decoration:no-underline;}"
+        },
+        {
+          "title": "a {underline:none;}"
+        },
+        {
+          "title": "a {text-decoration:none;}",
+          "correct": true
+        },
+        {
+          "title": "None of the above"
+        }
+      ]
+    },
+    {
+      "topic": "computer_technology",
+      "title": "A measure of the amount of memory needed for an algorithm to execute is called:",
+      "options": [
+        {
+          "title": "Functional Efficiency"
+        },
+        {
+          "title": "Space Efficiency",
+          "correct": true
+        },
+        {
+          "title": "No Functional Efficiency"
+        },
+        {
+          "title": "None of the above"
+        }
+      ]
+    },
+    {
+      "topic": "computer_technology",
+      "title": "What is the average time complexity of Merge Sort?",
+      "options": [
+        {
+          "title": "O(N*Log(M))"
+        },
+        {
+          "title": "O(N*Log(N))",
+          "correct": true
+        },
+        {
+          "title": "O(Log(N))"
+        },
+        {
+          "title": "No one can measure this."
+        }
+      ]
+    },
+    {
+      "topic": "computer_technology",
+      "title": "What does it mean when we say that an algorithm X is asymptotically more efficient than Y?",
+      "options": [
+        {
+          "title": "X will always be a better choice for small inputs"
+        },
+        {
+          "title": "X will always be a better choice for large inputs",
+          "correct": true
+        },
+        {
+          "title": "Y will always be a better choice for small inputs"
+        },
+        {
+          "title": "X will always be a better choice for all inputs"
+        }
+      ]
+    },
+    {
+      "topic": "computer_technology",
+      "title": "What is the time complexity of Sieve of Eratosthenes process?",
+      "options": [
+        {
+          "title": "O(Log(N))"
+        },
+        {
+          "title": "O(N*Log(N))"
+        },
+        {
+          "title": "O(Log(Log(N)))"
+        },
+        {
+          "title": "O(N*Log(Log(N)))",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "topic": "computer_technology",
+      "title": "What is the Minimum average time complexity to search a value with an 1D array?",
+      "options": [
+        {
+          "title": "O(Log3(N))",
+          "correct": true
+        },
+        {
+          "title": "O(Log(N))"
+        },
+        {
+          "title": "O(N^2)"
+        },
+        {
+          "title": "None of the above"
+        }
+      ]
+    }
+  ]
+}
